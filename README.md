@@ -19,7 +19,7 @@ It supports **user roles**: Admin and Member.
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/hotdeth/gwork/
-cd project-name
+cd gwork
 ````
 
 ### 2. Backend (Laravel) Setup
