@@ -1,6 +1,4 @@
 
-
-````markdown
 # Simple Task Management App
 
 A basic web application to manage tasks with **React frontend** and **Laravel backend**.  
