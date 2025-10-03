@@ -1,5 +1,4 @@
 
----
 
 ````markdown
 # Simple Task Management App
@@ -7,7 +6,6 @@
 A basic web application to manage tasks with **React frontend** and **Laravel backend**.  
 It supports **user roles**: Admin and Member.
 
----
 
 ## Features
 
@@ -17,7 +15,6 @@ It supports **user roles**: Admin and Member.
   - **Member**: See only their tasks and general tasks.  
   - **Admin**: Assign tasks to members.  
 
----
 
 ## Setup
 
