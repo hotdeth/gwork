@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Group extends Model
 {
-    /** @use HasFactory<\Database\Factories\TaskFactory> */
+    /** @use HasFactory<\Database\Factories\GroupFactory> */
     use HasFactory;
     protected $guarded = [];
+
+   public function tasks(){
+       return $this->hasMany(Task::class);
+   }
 }
