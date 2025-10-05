@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Group;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,10 @@ class TaskController extends Controller
         ]);
 
         $task = Task::create($data);
-
+        Group::create([
+            'task_id' => $task->id,
+            'grouptoken'=> $user->grouptoken,
+        ]);
         return response()->json($task, 201);
     }
 
