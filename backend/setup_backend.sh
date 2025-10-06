@@ -1,6 +1,13 @@
 #!/bin/bash
 
+
+echo "running composer-install..."
+
+composer install
+
+
 echo "Install the requirements...."
+
 
 docker run --rm \
     -u "$(id -u):$(id -g)" \
