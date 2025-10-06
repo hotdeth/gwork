@@ -25,16 +25,13 @@ cd gwork
 ### 2. Backend (Laravel) Setup
 
 ```bash
-cd backend/laravelfiles
-composer install
-cp .env.example .env
-php artisan key:generate
-# Set database credentials in .env
-php artisan migrate
-php artisan serve
+cp .env.example .env 
+modify .env file and change the DB vars
+chmod +x setup_backend.sh 
+./setup_backend.sh 
 ```
 
-The backend will run at `http://127.0.0.1:8000`
+The backend will run at `http://127.0.0.1`
 
 ---
 
