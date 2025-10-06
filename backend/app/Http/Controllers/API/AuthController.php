@@ -25,7 +25,7 @@ class AuthController extends Controller
 
         $grouptoken = $validated['role'] === 'admin' ? Str::random(32) : null;
 
-    
+
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
