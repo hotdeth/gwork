@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -15,18 +16,22 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|min:6',
             'role' => 'required|in:admin,member',
         ]);
 
+        $grouptoken = $validated['role'] === 'admin' ? Str::random(32) : null;
+
+
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => $request->role, // "admin" or "member"
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => Hash::make($validated['password']),
+            'role' => $validated['role'],
+            'grouptoken' => $grouptoken,
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -36,6 +41,7 @@ class AuthController extends Controller
             'token' => $token,
         ], 201);
     }
+
 
     /**
      * Login user and return token
