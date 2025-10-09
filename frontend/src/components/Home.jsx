@@ -19,6 +19,7 @@ function Home() {
     setTasks(tasks.map(task =>
       task.id === id ? {...task, completed: !task.completed } : task
     ));
+  }
 
     const filteredTasks = tasks.filter(task => {
       const matchesFilter =
@@ -30,7 +31,7 @@ function Home() {
     const matchesSearch =
   task.title.toLowerCase().includes(searchQuery.toLocaleLowerCase());
   
-  return mathceesFilter && matchesSearch;
+  return matchesFilter && matchesSearch;
    });
 
    const stats = {
@@ -101,8 +102,7 @@ function Home() {
 
      </>
      );
+  }
 
-  }}
 
-
-export default Home;
+export default Home
