@@ -66,3 +66,400 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f8fafc, #dbeafe, #f1f5f9);
+}
+
+.content-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 12px;
+  letter-spacing: -0.025em;
+}
+
+.header p {
+  color: #475569;
+  font-size: 18px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  transition: box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: #475569;
+  font-weight: 500;
+}
+
+.stat-icon {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.stat-icon.blue {
+  background-color: #dbeafe;
+}
+
+.stat-icon.amber {
+  background-color: #fef3c7;
+}
+
+.stat-icon.emerald {
+  background-color: #d1fae5;
+}
+
+.stat-icon.red {
+  background-color: #fee2e2;
+}
+
+.stat-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.stat-icon.blue svg {
+  color: #2563eb;
+}
+
+.stat-icon.amber svg {
+  color: #d97706;
+}
+
+.stat-icon.emerald svg {
+  color: #059669;
+}
+
+.stat-icon.red svg {
+  color: #dc2626;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.tasks-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.tasks-header {
+  padding: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.search-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: #94a3b8;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  ring: 2px solid #3b82f6;
+  border-color: transparent;
+}
+
+.filter-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.filter-button {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #475569;
+}
+
+.filter-button:hover {
+  color: #1e293b;
+}
+
+.filter-button.active {
+  background: white;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.new-task-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.new-task-button:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.new-task-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tasks-list {
+  border-top: 1px solid #f1f5f9;
+}
+
+.task-item {
+  padding: 24px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.3s ease;
+}
+
+.task-item:hover {
+  background-color: #f8fafc;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-content {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+}
+
+.task-checkbox {
+  margin-top: 4px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.task-checkbox:hover {
+  transform: scale(1.1);
+}
+
+.task-checkbox svg {
+  width: 24px;
+  height: 24px;
+}
+
+.task-checkbox svg.unchecked {
+  color: #cbd5e1;
+}
+
+.task-item:hover .task-checkbox svg.unchecked {
+  color: #94a3b8;
+}
+
+.task-checkbox svg.checked {
+  color: #10b981;
+}
+
+.task-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.task-title.completed {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badge.priority-high {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge.priority-high .badge-dot {
+  background-color: #ef4444;
+}
+
+.badge.priority-medium {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.badge.priority-medium .badge-dot {
+  background-color: #f59e0b;
+}
+
+.badge.priority-low {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge.priority-low .badge-dot {
+  background-color: #10b981;
+}
+
+.badge.category {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.badge.date {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.badge.date svg {
+  width: 14px;
+  height: 14px;
+}
+
+.badge.date.today {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badge.date.overdue {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.empty-state {
+  padding: 48px;
+  text-align: center;
+}
+
+.empty-icon {
+  background-color: #f8fafc;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.empty-icon svg {
+  width: 32px;
+  height: 32px;
+  color: #94a3b8;
+}
+
+.empty-state p {
+  color: #475569;
+  font-size: 18px;
+}
+
+.empty-state p.subtitle {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.footer-info {
+  margin-top: 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
