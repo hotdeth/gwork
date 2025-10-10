@@ -1,17 +1,12 @@
-
-import './App.css'
-import Home from "./components/Home.jsx"
-
-
-
+import { AuthProvider } from "./contexts/AuthContext";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
-
   return (
-    <>
-     <Home></Home>
-    </>
-  )
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;
