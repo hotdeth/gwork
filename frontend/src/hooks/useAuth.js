@@ -3,7 +3,7 @@ import * as authApi from "../api/auth";
 
 
 export const useAuthHook = () =>{
-    const {loginUser , logoutUesr} = useAuth();
+    const {loginUser , logoutUser} = useAuth();
 
     const login = async(credentials) => {
         const res = await authApi.login(credentials);
@@ -17,7 +17,7 @@ export const useAuthHook = () =>{
 
     const logout = async()=>{
         await authApi.logout();
-        logoutUesr();
+        logoutUser();
     };
 
     return {login , logout , register}

@@ -1,9 +1,13 @@
 import "../index.css";
 import { useState } from 'react';
 import { CheckCircle2, Circle, Plus, Search, Filter, Calendar, Clock, Star } from 'lucide-react';
-
+import { useNavigate } from "react-router-dom";
+import { useAuthHook } from "../hooks/useAuth";
+import Header from "./Header";
 
 function Home() {
+  const navigate = useNavigate();
+  const { logout } = useAuthHook();
   const [tasks, setTasks] = useState([
     { id: '1', title: 'Review Q4 financial reports', completed: false, priority: 'high', dueDate: '2025-10-08', category: 'Work' },
     { id: '2', title: 'Update project documentation', completed: false, priority: 'medium', dueDate: '2025-10-10', category: 'Work' },
@@ -11,6 +15,14 @@ function Home() {
     { id: '4', title: 'Grocery shopping', completed: true, priority: 'low', category: 'Personal' },
     { id: '5', title: 'Schedule dentist appointment', completed: false, priority: 'medium', dueDate: '2025-10-12', category: 'Personal' },
   ]);
+
+  //test logout function in this page :) 
+  
+  function handleLogout(){
+    logout();
+    console.log("you are logout");
+    navigate("/login")
+  }
 
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -51,12 +63,14 @@ function Home() {
     return dateString < today;
   };
 
-  return (
+  return (<>
+  <Header/>
     <div className="app-container">
       <div className="content-wrapper">
         <header className="header">
           <h1>My Tasks</h1>
           <p>Stay organized and productive</p>
+          <button onClick={()=>handleLogout()}>Logout</button>
         </header>
 
         <div className="stats-grid">
@@ -210,7 +224,7 @@ function Home() {
         )}
       </div>
     </div>
-  );
+  </>);
 }
 
 export default Home;
