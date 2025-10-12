@@ -64,7 +64,7 @@ function Home() {
   };
 
   return (<>
-  <Header/>
+
     <div className="app-container">
       <div className="content-wrapper">
         <header className="header">
