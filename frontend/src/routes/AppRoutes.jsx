@@ -11,7 +11,6 @@ function AppRoutes() {
     <BrowserRouter>
       <Routes>
         {/* Public routes */}
-        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />   
         <Route path="/register" element={<Register />} />
         
@@ -22,6 +21,14 @@ function AppRoutes() {
           element={
             <ProtectedRoute>
               <Tasks/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home></Home>
             </ProtectedRoute>
           }
         />
