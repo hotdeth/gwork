@@ -18,14 +18,14 @@ export default function Register() {
     try {
       await register({ name, email, password , role});
       setMessage("✅ Registered successfully!");
-      navigate("/tasks");
+      navigate("/");
     } catch (err) {
       setMessage("❌ Registration failed. Try again.");
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex text-black flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-bold text-center mb-4">Register</h2>
 
