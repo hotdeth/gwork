@@ -4,14 +4,12 @@ import { CheckCircle2, Circle, Plus, Search, Filter, Calendar, Clock, Star  } fr
 import { useNavigate } from "react-router-dom";
 import { useAuthHook } from "../hooks/useAuth";
 import Header from "./Header";
-import { UseTasks } from "../hooks/useTasks";
 import TaskForm from "./TaskForm";
 import { motion , AnimatePresence } from "framer-motion";
 
 function Home() {
   const navigate = useNavigate();
   const [Add ,setadd] = useState(false);
-  const {Tasks , loading , addTask , editTask ,removeTask } = UseTasks();
   const { logout } = useAuthHook();
   const [tasks, setTasks] = useState([
     { id: '1', title: 'Review Q4 financial reports', completed: false, priority: 'high', dueDate: '2025-10-08', category: 'Work' },
