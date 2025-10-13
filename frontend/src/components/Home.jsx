@@ -1,12 +1,17 @@
 import "../index.css";
 import { useState } from 'react';
-import { CheckCircle2, Circle, Plus, Search, Filter, Calendar, Clock, Star } from 'lucide-react';
+import { CheckCircle2, Circle, Plus, Search, Filter, Calendar, Clock, Star  } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 import { useAuthHook } from "../hooks/useAuth";
 import Header from "./Header";
+import { UseTasks } from "../hooks/useTasks";
+import TaskForm from "./TaskForm";
+import { motion , AnimatePresence } from "framer-motion";
 
 function Home() {
   const navigate = useNavigate();
+  const [Add ,setadd] = useState(false);
+  const {Tasks , loading , addTask , editTask ,removeTask } = UseTasks();
   const { logout } = useAuthHook();
   const [tasks, setTasks] = useState([
     { id: '1', title: 'Review Q4 financial reports', completed: false, priority: 'high', dueDate: '2025-10-08', category: 'Work' },
@@ -20,9 +25,9 @@ function Home() {
   
   function handleLogout(){
     logout();
-    console.log("you are logout");
     navigate("/login")
   }
+
 
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -64,13 +69,12 @@ function Home() {
   };
 
   return (<>
-
+  <Header/>
     <div className="app-container">
       <div className="content-wrapper">
-        <header className="header">
+        <header className="header mb-10 mt-10">
           <h1>My Tasks</h1>
           <p>Stay organized and productive</p>
-          <button onClick={()=>handleLogout()}>Logout</button>
         </header>
 
         <div className="stats-grid">
@@ -115,7 +119,20 @@ function Home() {
           </div>
         </div>
 
-        <div className="tasks-container">
+  <AnimatePresence>
+   {Add && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}  // starting style
+      animate={{ opacity: 1, y: 0 }}    // enter animation
+      exit={{ opacity: 0, y: 20 }}      // exit animation
+      transition={{ duration: 0.3 }}    // speed
+    >
+      <TaskForm />
+    </motion.div>
+  )}
+</AnimatePresence>
+ 
+        <div className="tasks-container mt-10">
           <div className="tasks-header">
             <div className="controls">
               <div className="search-wrapper">
@@ -150,10 +167,18 @@ function Home() {
                 </button>
               </div>
 
-              <button className="new-task-button">
+
+            {Add ? 
+            <button onClick={()=>setadd(!Add)} className="new-task-button-close">
+                <circle/>
+                X close
+              </button>
+          :
+          <button onClick={()=>setadd(!Add)} className="new-task-button">
                 <Plus />
                 New Task
               </button>
+          }    
             </div>
           </div>
 
