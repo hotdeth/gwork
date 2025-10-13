@@ -1,19 +1,15 @@
 import { UseTasks } from "../hooks/useTasks";
+import { useState } from "react";
+import TaskForm from "../components/TaskForm";
 
 function Tasks(){
     const {tasks , loading , addTask , editTask ,removeTask } = UseTasks();
-
+    const [taskform , setTasksform] = useState({title:"", description:"",})
   
-     return (
-    <div>
-      <h1>Your Tasks</h1>
-      {tasks.map(task => (
-        <div key={task.id}>
-          <h3>{task.title}</h3>
-        </div>
-      ))}
-    </div>
-  );
+  return(
+    <TaskForm/>
+  )
+
 }
 
 export default Tasks;

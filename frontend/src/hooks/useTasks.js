@@ -11,7 +11,7 @@ export const UseTasks = ()=>{
     const fetchTasks = async()=>{
         setLoading(true);
         try{
-            const res = taskApi.getTasks();
+            const res = await taskApi.getTasks();
             setTasks(res.data);
         }catch(err){
             console.log(err);

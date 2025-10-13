@@ -14,7 +14,7 @@ export default function Login() {
     try {
       await login({ email, password });
       setMessage("✅ Logged in successfully!");
-      navigate("/");
+      navigate("/tasks");
     } catch (err) {
       setMessage("❌ Login failed. Please check your credentials.");
     }
