@@ -16,12 +16,3 @@ export const updateTask = (id,task)=> axios.put(`${API_URL}/tasks/${id}` , task,
 export const deleteTask = (id)=> axios.delete(`${API_URL}/tasks/${id}` ,{headers:getHeaders()});
 
 
-// export function getTasks(){
-//         let tata;
-//         axios.get(`${API_URL}/tasks`,{headers:getHeaders()})
-//         .then((res)=>{
-//             tata = res.data
-//         }).catch(err => console.log(err))
-
-//         return tata;
-// }
