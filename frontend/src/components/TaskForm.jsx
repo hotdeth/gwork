@@ -5,7 +5,7 @@ import { useState } from "react"
 function TaskForm(){
     const {tasks , loading , addTask , editTask ,removeTask } = UseTasks();
     const [taskform , setTasksform] = useState({title:"", description:"",})
-  
+ 
 
 
 
@@ -13,12 +13,8 @@ function TaskForm(){
         e.preventDefault();
         addTask(taskform);
         setTasksform({title:"",description:""});
-
+        setMessage("The Task Is add Successfully")
     }
-
-
-
-
 
     return(<><form onSubmit={handleadd}>
     <div className="relative bg-white flex p-5 rounded-2xl flex-col text-black h-90">    
