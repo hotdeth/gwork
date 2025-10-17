@@ -57,7 +57,7 @@ button:focus-visible {
 
 .app-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #989fa7, #5e7da0, #8f969f);
+  background: linear-gradient(to bottom right, #cbd5e1, #93c5fd, #cbd5e1);
 }
 
 .content-wrapper {
