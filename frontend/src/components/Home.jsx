@@ -11,12 +11,8 @@ function Home() {
   const navigate = useNavigate();
   const [Add ,setadd] = useState(false);
   const { logout } = useAuthHook();
-  const [tasks, setTasks] = useState([
-    { id: '1', title: 'Review Q4 financial reports', completed: false, priority: 'high', dueDate: '2025-10-08', category: 'Work' },
-    { id: '2', title: 'Update project documentation', completed: false, priority: 'medium', dueDate: '2025-10-10', category: 'Work' },
-    { id: '3', title: 'Team meeting at 3 PM', completed: false, priority: 'high', dueDate: '2025-10-07', category: 'Meetings' },
-    { id: '4', title: 'Grocery shopping', completed: true, priority: 'low', category: 'Personal' },
-    { id: '5', title: 'Schedule dentist appointment', completed: false, priority: 'medium', dueDate: '2025-10-12', category: 'Personal' },
+  const [tasks, setTasks] = useState([ 
+    
   ]);
 
   //test logout function in this page :) 
@@ -51,7 +47,6 @@ function Home() {
     total: tasks.length,
     completed: tasks.filter(t => t.completed).length,
     active: tasks.filter(t => !t.completed).length,
-    highPriority: tasks.filter(t => t.priority === 'high' && !t.completed).length,
   };
 
   const isToday = (dateString) => {
@@ -106,15 +101,7 @@ function Home() {
             <div className="stat-value">{stats.completed}</div>
           </div>
 
-          <div className="stat-card">
-            <div className="stat-header">
-              <span className="stat-label">High Priority</span>
-              <div className="stat-icon red">
-                <Star />
-              </div>
-            </div>
-            <div className="stat-value">{stats.highPriority}</div>
-          </div>
+          
         </div>
 
   <AnimatePresence>
@@ -210,15 +197,6 @@ function Home() {
                       </h3>
 
                       <div className="task-meta">
-                        <span className={`badge priority-${task.priority}`}>
-                          <span className="badge-dot"></span>
-                          {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
-                        </span>
-
-                        <span className="badge category">
-                          {task.category}
-                        </span>
-
                         {task.dueDate && (
                           <span className={`badge date ${
                             isOverdue(task.dueDate) && !task.completed

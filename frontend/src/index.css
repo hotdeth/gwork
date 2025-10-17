@@ -57,7 +57,7 @@ button:focus-visible {
 
 .app-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #f8fafc, #dbeafe, #f1f5f9);
+  background: linear-gradient(to bottom right, #989fa7, #5e7da0, #8f969f);
 }
 
 .content-wrapper {
@@ -85,7 +85,7 @@ button:focus-visible {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 40px;
 }
@@ -370,38 +370,6 @@ button:focus-visible {
   font-weight: 500;
 }
 
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-.badge.priority-high {
-  background-color: #fee2e2;
-  color: #b91c1c;
-}
-
-.badge.priority-high .badge-dot {
-  background-color: #ef4444;
-}
-
-.badge.priority-medium {
-  background-color: #fef3c7;
-  color: #b45309;
-}
-
-.badge.priority-medium .badge-dot {
-  background-color: #f59e0b;
-}
-
-.badge.priority-low {
-  background-color: #d1fae5;
-  color: #065f46;
-}
-
-.badge.priority-low .badge-dot {
-  background-color: #10b981;
-}
 
 .badge.category {
   background-color: #f1f5f9;
