@@ -2,10 +2,9 @@ import "../index.css";
 import { useState } from 'react';
 import { CheckCircle2, Circle, Plus, Search, Filter, Calendar, Clock } from 'lucide-react';
 import Header from "./Header";
-import TaskForm from "./TaskForm";
 import { motion , AnimatePresence } from "framer-motion";
 import { UseTasks } from "../hooks/useTasks";
-import { p } from "framer-motion/client";
+import { div, input, label } from "framer-motion/client";
 
 function Home() {
   const [Add, setAdd] = useState(false);
@@ -13,16 +12,11 @@ function Home() {
 
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-   const [taskform , setTasksform] = useState({title:"", description:"",})
+   const [taskform , setTasksform] = useState({title:"", description:"", is_general:null})
  
 
   // Toggle task completion
-  const toggleTask = (id) => {
-    const task = tasks.find(t => t.id === id);
-    if (task) {
-      editTask(id, { ...task, is_completed: task.is_completed ? 0 : 1 });
-    }
-  };
+  
 
 
 
@@ -66,7 +60,7 @@ function Home() {
   return (
     <>
       <Header />
-      <div className="app-container">
+      <div className="app-container ">
         <div className="content-wrapper">
           <header className="header mb-10 mt-10">
             <h1>My Tasks</h1>
@@ -114,13 +108,28 @@ function Home() {
                 transition={{ duration: 0.3 }}
               >
                 <form onSubmit={handleadd}>
-    <div className="relative bg-white flex p-5 rounded-2xl flex-col text-black h-90">    
-        <h1 className="text-4xl mb-5">Add New Task</h1>
-        <label className="text-3xl" htmlFor="">Title</label>
-        <input value={taskform.title} onChange={(e)=> setTasksform({...TaskForm,title:e.target.value})} className="px-3 text-xl mb-5 w-100 h-10  shadow rounded" type="text" placeholder="Title"/>
-         <label className="text-3xl" htmlFor="">Description</label>
-        <input value={taskform.description} onChange={(e)=> setTasksform({...taskform,description:e.target.value})} className="px-3 text-xl mb-5 w-100 h-10  shadow rounded" type="text" placeholder="Description"/>
+    <div className="relative flex justify-center items-center p-5 rounded-2xl flex-col text-black h-90">    
+      <div className=" bg-white p-4 rounded-3xl flex flex-col">
+        <h1 className="text-3xl text-center font-bold mb-5">New Task</h1>
+        <label className="text-2xl" htmlFor="">Title</label>
+        <input value={taskform.title} onChange={(e)=> setTasksform({...taskform,title:e.target.value})} className="border border-black/20 px-3 text-xl mb-5 w-100 h-10  shadow rounded" type="text" placeholder="Title"/>
+         <label className="text-2xl" htmlFor="">Description</label>
+        <input value={taskform.description} onChange={(e)=> setTasksform({...taskform,description:e.target.value})} className="border border-black/20 px-3 text-xl mb-5 w-100 h-10  shadow rounded" type="text" placeholder="Description"/>
+        <label className="text-2xl" htmlFor="">Type of task</label>
+        <div className="mb-3">
+        <label className="mr-1">General</label>
+        <input value={taskform.is_general} onChange={()=> setTasksform({...taskform,is_general:1})} name="ss" className="mr-3" type="radio"  />
+        <label className="mr-1">Private</label>
+        <input value={taskform.is_general} onChange={()=> setTasksform({...taskform,is_general:0})} name="ss"className="" type="radio" />
+        </div>
+        {taskform.is_general? null : 
+        <>
+        <label htmlFor="">Enter User Id</label>
+        <input className="mb-3 border-1 rounded-3xl pl-5 w-20 " type="number"/>
+        </>
+        }
         <button className="w-20 rounded font-bold text-2xl   text-white bg-blue-600 ">Add</button>
+        </div>
     </div>
 </form>
               </motion.div>
@@ -190,7 +199,7 @@ function Home() {
                   <div key={task.id} className="task-item">
                     <div className="task-content">
                       <button
-                        onClick={() => toggleTask(task.id)}
+                        onClick={() => editTask(task.id,{...task,is_completed:1? 0 : 1})}
                         className="task-checkbox"
                       >
                         {task.is_completed ? (
@@ -204,6 +213,7 @@ function Home() {
                         <h3 className={`task-title ${task.is_completed ? 'completed' : ''}`}>
                           {task.title || "Untitled Task"}
                         </h3>
+                        <p className="text-sm text-gray-500 mb-3">{task.description}</p>
 
                         <div className="task-meta">
                           {task.created_at && (

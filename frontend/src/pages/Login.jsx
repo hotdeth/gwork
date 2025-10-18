@@ -9,12 +9,13 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login({ email, password });
       setMessage("✅ Logged in successfully!");
-      navigate("/tasks");
+      navigate("/");
     } catch (err) {
       setMessage("❌ Login failed. Please check your credentials.");
     }
